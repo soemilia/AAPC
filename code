@@ -1,6 +1,5 @@
 # Instalar e carregar as bibliotecas necessárias
-# install.packages("survival")
-# library(survival)
+
 install.packages('stringr')
 library(stringr)
 
