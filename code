@@ -55,46 +55,11 @@ calcular_aapc_binomial <- function(eventos, tamanho_amostra, anos) {
 }
 
 
-Tabela_RCU2 <- Tabela_RCU[1:11,1:42]
-
-Casos <- Tabela_RCU2$`DA_NÚMERO DE CASOS RCU`
-
-População <- Tabela_RCU2$`DA_POPULAÇÃO ESTIMADA`
-População <- str_replace_all(População,",","") 
-População <- as.numeric(População)
-Ano <- Tabela_RCU2$Ano
-
-Pop_fixo <- rep(119700, 11)
-
-
-Paciente <- Tabela_RCU2$`A_H_Pacientes únicos`
-
-
-Casos_binomial_prevalencia <- calcular_aapc_binomial(Casos, População, Ano)
-Pacientes_binomial_prevalencia <- calcular_aapc_binomial(Paciente, População, Ano)
-Pacientes_binomial_prevalencia_fixo2020 <- calcular_aapc_binomial(Paciente, Pop_fixo, Ano)
-
-plot(Casos_binomial_prevalencia$modelo, type = "response")
-Casos_binomial_prevalencia$modelo
-segmented(modelo)
 
 # Calcular AAPC e resultados usando regressão Poisson
 # resultado_poisson <- calcular_aapc_poisson(casos, populacao, anos)
 
-cat("Análise de Incidência (Poisson):\n")
-cat("AAPC:", R_poisson$aapc, "%\n")
-cat("IC 95%:", R_poisson$ic_lower, "-", R_poisson$ic_upper, "%\n")
-cat("Erro Padrão:", R_poisson$erro_padrao, "\n")
-cat("Valor de p:", R_poisson$p_valor, "\n")
-cat("\n")
 
-# Calcular AAPC e resultados usando regressão binomial
-resultado_binomial <- calcular_aapc_binomial(eventos, tamanho_amostra, anos)
-cat("Análise de Prevalência (Binomial):\n")
-cat("AAPC:", resultado_binomial$aapc, "%\n")
-cat("IC 95%:", resultado_binomial$ic_lower, "-", resultado_binomial$ic_upper, "%\n")
-cat("Erro Padrão:", resultado_binomial$erro_padrao, "\n")
-cat("Valor de p:", resultado_binomial$p_valor, "\n")
 
 
 
