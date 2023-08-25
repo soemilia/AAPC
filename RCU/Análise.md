@@ -1,7 +1,8 @@
 # Retocolite Ulcerativa (RCU) no Brasil no período de 2012-2022
 
 
-Cálculo da prevalência de RCU na população geral, por análise binomial.
+1. Cálculo da prevalência de RCU na população geral, por análise binomial.
+   
 ```
 #Pacote necessário
 library(dplyr)
@@ -42,3 +43,16 @@ cat("Análise de Prevalência (Binomial):\n",
     "Desvio Padrão:", desvio_padrao_aapc *100, "\n",
     "Valor de p:", p_valor, "\n")
 ```
+
+
+Resultados
+
+Análise de Prevalência (Binomial):
+* AAPC: 15.05531 %
+* IC 95%: 15.05322 - 15.0574 %
+* Erro Padrão: 0.0323791 
+* Desvio Padrão: 0.1073893 
+* Valor de p: 0 
+
+
+ 2. 
