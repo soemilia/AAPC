@@ -15,7 +15,7 @@ library(readxl)
 #+         "numeric"))
 
 #Ajustando o modelo de regressão binomial
-modelo <- glm(cbind(Casos_RCU, Populacao_Estimada - Casos_RCU) ~ Ano, data = dados, family = binomial(link = "logit"))
+modelo <- glm(cbind(Casos_RCU, Populacao_Estimada - Casos_RCU) ~ Ano, data = RCU, family = binomial(link = "logit"))
 
 #Obtendo os coeficientes do modelo
 coeficientes <- coef(modelo)
@@ -34,8 +34,8 @@ p_valor <- coef(summary(modelo))["Ano", "Pr(>|z|)"]
 
 #Calculando os intervalos de confiança do AAPC usando a distribuição t
 confianca <- 0.95
-intervalo_confianca <- c(aapc - qt(1 - confianca / 2, df = length(dados$Ano) - 2) * erro_padrao,
-                         aapc + qt(1 - confianca / 2, df = length(dados$Ano) - 2) * erro_padrao)
+intervalo_confianca <- c(aapc - qt(1 - confianca / 2, df = length(RCU$Ano) - 2) * erro_padrao,
+                         aapc + qt(1 - confianca / 2, df = length(RCU$Ano) - 2) * erro_padrao)
 
 
 #Exibindo os resultados
