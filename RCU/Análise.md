@@ -6,9 +6,13 @@
 ```
 #Pacote necessário
 library(dplyr)
+library(readxl)
 
 #Criando o dataframe com os dados
-Dados disponpivel
+#RCU <- read_excel("C:/Users/soemi/OneDrive/RCU.xlsx", 
+#+     col_types = c("numeric", "numeric", "numeric", 
+#+         "numeric", "numeric", "numeric", 
+#+         "numeric"))
 
 #Ajustando o modelo de regressão binomial
 modelo <- glm(cbind(Casos_RCU, Populacao_Estimada - Casos_RCU) ~ Ano, data = dados, family = binomial(link = "logit"))
