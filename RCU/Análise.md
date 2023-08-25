@@ -1,8 +1,10 @@
 # Retocolite Ulcerativa (RCU) no Brasil no período de 2012-2022
 
 
-Pacotes necessários
-```library(dplyr)
+Cálculo da prevalência de RCU na população geral, por análise binomial.
+```
+#Pacote necessário
+library(dplyr)
 
 #Criando o dataframe com os dados
 Dados disponpivel
@@ -19,6 +21,9 @@ aapc <- exp(coeficientes["Ano"]) - 1
 #Calculando o erro padrão do AAPC
 erro_padrao <- coef(summary(modelo))["Ano", "Std. Error"]
 
+# Calculando o desvio padrão
+desvio_padrao_aapc <- erro_padrao * sqrt(length(RCU$Ano))
+
 #Calculando o valor de "p" associado ao AAPC
 p_valor <- coef(summary(modelo))["Ano", "Pr(>|z|)"]
 
@@ -27,10 +32,13 @@ confianca <- 0.95
 intervalo_confianca <- c(aapc - qt(1 - confianca / 2, df = length(dados$Ano) - 2) * erro_padrao,
                          aapc + qt(1 - confianca / 2, df = length(dados$Ano) - 2) * erro_padrao)
 
+
 #Exibindo os resultados
-at("Análise de Prevalência (Binomial):\n",
+
+cat("Análise de Prevalência (Binomial):\n",
     "AAPC:", aapc*100, "%\n", 
     "IC 95%:", intervalo_confianca[1] * 100, "-", intervalo_confianca[2] * 100, "%\n",
     "Erro Padrão:", erro_padrao * 100, "\n",
+    "Desvio Padrão:", desvio_padrao_aapc *100, "\n",
     "Valor de p:", p_valor, "\n")
-    ```
+```
