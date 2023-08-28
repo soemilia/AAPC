@@ -19,7 +19,7 @@
 
 
 Legenda:
-
+___ 
 RCU: Retocolite Ulcerativa
 
 CX: Cirurgia
