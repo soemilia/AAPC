@@ -11,4 +11,14 @@
 * Toxal_CX_Ano_Acumulativo
 * Pacientes_Únicos
 * Pacientes_Únicos_Acumulativo
+* Proporção_RCU_BRASIL
+* Taxa cx/RCU_Acumulativo
+* Taxa cx/RCU_nãoAcumulativo
+* Taxa cx/RCU_Acumulativo
+* Taxa cx/RCU_nãoAcumulativo
+
+
+Legenda:
+RCU: Retocolite Ulcerativ
+CX: Cirurgia
 
