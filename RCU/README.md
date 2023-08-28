@@ -14,12 +14,15 @@
 * Proporção_RCU_BRASIL
 * Taxa cx/RCU_Acumulativo
 * Taxa cx/RCU_nãoAcumulativo
-* Taxa cx/RCU_Acumulativo
-* Taxa cx/RCU_nãoAcumulativo
+* Taxa Hosp/RCU_Acumulativo
+* Taxa Hosp/RCU_nãoAcumulativo
+
 
 
 ##### Legenda:
 **RCU**: Retocolite Ulcerativa
 
 **CX**: Cirurgia
+
+**Hosp**: Hospitalização
 
