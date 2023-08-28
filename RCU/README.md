@@ -18,9 +18,8 @@
 * Taxa cx/RCU_nãoAcumulativo
 
 
-Legenda:
-___ 
-RCU: Retocolite Ulcerativa
+##### Legenda:
+**RCU**: Retocolite Ulcerativa
 
-CX: Cirurgia
+**CX**: Cirurgia
 
