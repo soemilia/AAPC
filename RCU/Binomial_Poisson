@@ -1,6 +1,7 @@
 # Análise da distribuição dos dados:
 # 
 # Para verificar os se or dados se enquandrão quais tipo de distribuição foram utilizado dois testes  de dispersão e compração do *log-likelihood ratios*.
+# se Q-quidrado for > que o level aceita-se o Ha - distribuição Binomial negativa
 # 
 
 #bibliotecas necessárias:
