@@ -1,0 +1,47 @@
+######################################
+# Saída do programa Binomial_Poisson #
+######################################
+
+## Nota: o output da função odTest() não é poissível ser 'salva' em variáveis, desse modo os resultados foram copiados aqui.
+
+## 1.
+> odTest(RCU_BR)
+Likelihood ratio test of H0: Poisson, as restricted NB model:
+n.b., the distribution of the test-statistic under H0 is non-standard
+e.g., see help(odTest) for details/references
+
+Critical value of test statistic at the alpha= 0.05 level: 2.7055 
+Chi-Square Test Statistic =  Inf p-value = < 2.2e-16 
+## 2.
+> odTest(CX_Ac) # precisa ser glm.nb
+Likelihood ratio test of H0: Poisson, as restricted NB model:
+n.b., the distribution of the test-statistic under H0 is non-standard
+e.g., see help(odTest) for details/references
+
+Critical value of test statistic at the alpha= 0.05 level: 2.7055 
+Chi-Square Test Statistic =  Inf p-value = < 2.2e-16
+## 3.
+> odTest(CX_NA)
+Likelihood ratio test of H0: Poisson, as restricted NB model:
+n.b., the distribution of the test-statistic under H0 is non-standard
+e.g., see help(odTest) for details/references
+
+Critical value of test statistic at the alpha= 0.05 level: 2.7055 
+Chi-Square Test Statistic =  Inf p-value = < 2.2e-16 
+## 4.
+> odTest(Hosp_Ac)
+Likelihood ratio test of H0: Poisson, as restricted NB model:
+n.b., the distribution of the test-statistic under H0 is non-standard
+e.g., see help(odTest) for details/references
+
+Critical value of test statistic at the alpha= 0.05 level: 2.7055 
+Chi-Square Test Statistic =  Inf p-value = < 2.2e-16 
+## 5.
+> odTest(Hosp_NA)
+Likelihood ratio test of H0: Poisson, as restricted NB model:
+n.b., the distribution of the test-statistic under H0 is non-standard
+e.g., see help(odTest) for details/references
+
+Critical value of test statistic at the alpha= 0.05 level: 2.7055 
+Chi-Square Test Statistic =  Inf p-value = < 2.2e-16
+
