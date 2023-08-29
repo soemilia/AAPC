@@ -20,11 +20,17 @@ Análise de Retocolite Ulcerativa (RCU) no Brasil no período de 2012-2022 em li
 * Taxa Hosp/RCU_nãoAcumulativo - Proporção entre Total de hospitalização por Ano acumulativo/ Casos de RCU
 
 
-
-##### Legenda:
+### Legenda:
 **RCU**: Retocolite Ulcerativa
 
 **CX**: Cirurgia
 
 **Hosp**: Hospitalização
+
+
+
+## Artigos interessantes
+[segmented: An R Package to Fit Regression Models with Broken-Line Relationships](https://journal.r-project.org/articles/RN-2008-004/RN-2008-004.pdf)
+
+
 
