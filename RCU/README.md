@@ -1,5 +1,7 @@
 # Análise de Retocolite Ulcerativa (RCU) no Brasil no período de 2012-2022
 
+Análise de Retocolite Ulcerativa (RCU) no Brasil no período de 2012-2022 em linguagem R (versão 4.3.1)
+
 
 
 ## Colunas da tabela RCU
