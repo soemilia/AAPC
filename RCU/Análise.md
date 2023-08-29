@@ -1,7 +1,10 @@
 # Retocolite Ulcerativa (RCU) no Brasil no período de 2012-2022
 
+### Pré-análise: Distibuição Poisson x Binomial negativa
+Após análise das [saídas](https://github.com/soemilia/epi_aapc/blob/main/RCU/Binomial_Poisson_Sa%C3%ADda) do código [Binomial_Poisson](https://github.com/soemilia/epi_aapc/blob/main/RCU/Binomial_Poisson), foi observado que para as 5 análises ( Proporção_RCU_BRASIL, cx/RCU_Acumulativo, cx/RCU_nãoAcumulativo, Hosp/RCU_Acumulativo e Hosp/RCU_nãoAcumulativo) apresentam distribuição binomial negativa.
 
-1. Cálculo da prevalência de RCU na população geral, por análise binomial.
+
+### 1. Cálculo da prevalência de RCU na população geral, por análise binomial.
    
 ```
 #Pacote necessário
