@@ -3,6 +3,50 @@
 ### Pré-análise: Distibuição Poisson x Binomial negativa
 Após análise das [saídas](https://github.com/soemilia/epi_aapc/blob/main/RCU/Binomial_Poisson_Sa%C3%ADda) do código [Binomial_Poisson](https://github.com/soemilia/epi_aapc/blob/main/RCU/Binomial_Poisson), foi observado que para as 5 análises ( Proporção_RCU_BRASIL, cx/RCU_Acumulativo, cx/RCU_nãoAcumulativo, Hosp/RCU_Acumulativo e Hosp/RCU_nãoAcumulativo) apresentam distribuição binomial negativa.
 
+## Breakspoints 
+Pode-se usar funções como a `selgmented()`,  `pscore.test()` ou mesmo `davies.test()` para avaliar a presença de breakpoints na regressão.
+
+```
+library(segmented)
+library(nlme)
+
+selgmented(RCU_BR)
+```
+
+Saída:
+```
+Hypothesis testing to detect no. of breakpoints
+statistic: Score   level: 0.05   Bonferroni correction: FALSE 
+p-value '0 vs 2' = 0.01128   p-value '1 vs 2' = 0.6182 
+Overall p-value = 0.0416
+No. of selected breakpoints:  1
+```
+
+Estimativa do breakpoint pode ser avaliado pela função `segmented()`
+
+``` 
+fit.seg<-segmented(RCU_BR, seg.Z=~Ano)
+
+```
+
+Saída
+
+```
+>fit.seg
+Call: segmented.glm(obj = RCU_BR, seg.Z = ~Ano)
+
+Meaningful coefficients of the linear terms:
+(Intercept)          Ano       U1.Ano  
+  -466.0560       0.2273      -0.1080  
+
+Estimated Break-Point(s):
+psi1.Ano  
+    2015  
+
+Degrees of Freedom: 10 Total (i.e. Null);  7 Residual
+Null Deviance:     0.0803 
+Residual Deviance: 0.0793      AIC: 8.084 
+```
 
 ### 1. Cálculo da prevalência de RCU na população geral, por análise binomial.
    
@@ -10,6 +54,9 @@ Após análise das [saídas](https://github.com/soemilia/epi_aapc/blob/main/RCU/
 #Pacote necessário
 library(dplyr)
 library(readxl)
+library(segmented)
+library(nlme)
+library(MASS)
 
 #Criando o dataframe com os dados
 #RCU <- read_excel("C:/Users/soemi/OneDrive/RCU.xlsx", 
