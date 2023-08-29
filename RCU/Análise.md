@@ -99,7 +99,7 @@ calcular_aapc_binomial <- function(eventos, anos) {
 }
 
 
-
+```
 
 Output
 ```
