@@ -64,49 +64,56 @@ library(MASS)
 #+         "numeric", "numeric", "numeric", 
 #+         "numeric"))
 
-#Ajustando o modelo de regressão binomial
-modelo <- glm(cbind(Casos_RCU, Populacao_Estimada - Casos_RCU) ~ Ano, data = RCU, family = binomial(link = "logit"))
 
-#Obtendo os coeficientes do modelo
-coeficientes <- coef(modelo)
+# função para o calculo da prevalencia
+calcular_aapc_binomial <- function(eventos, anos) {
+        modelo <- glm.nb(eventos ~ anos)
+        coef_ano <- coef(modelo)[2]
+      
+        erro_padrao <- coef(summary(modelo))[2, "Std. Error"]
+        graus_liberdade_residual <- df.residual(modelo)
+        confianca <- 0.95
+        graus_liberdade <- graus_liberdade_residual - 2  
+        tval <- qt(1 - confianca / 2, df = graus_liberdade)
+        SEm <- coef(summary(modelo))[2, "Std. Error"]
+        
+        ic_upper <- (exp(coef_ano + (Tval * SEm)) - 1) * 100
+        ic_lower <- (exp(coef_ano - (Tval * SEm)) - 1) * 100
+        aapc2 <- (exp(coef_ano) - 1) * 100
+        p_valor <- coef(summary(modelo))[2, "Pr(>|z|)"]
+        
+        valor_absoluto_m_SEm <- abs(coef_ano / SEm)
+        graus_liberdade_residual <- df.residual(modelo)
+        valor_p <- 2 * pt(-valor_absoluto_m_SEm, df = graus_liberdade_residual)
+        
+        resultado <- list(
+                p_valor = valor_p,
+                ic_lower = ic_lower,
+                ic_upper = ic_upper,
+                erro_padrao = erro_padrao,
+                aapc2 = aapc2,
+                modelo = modelo
+        )
+        
+        return(resultado)
+}
 
-#Calculando o AAPC
-aapc <- exp(coeficientes["Ano"]) - 1
-
-#Calculando o erro padrão do AAPC
-erro_padrao <- coef(summary(modelo))["Ano", "Std. Error"]
-
-# Calculando o desvio padrão
-desvio_padrao_aapc <- erro_padrao * sqrt(length(RCU$Ano))
-
-#Calculando o valor de "p" associado ao AAPC
-p_valor <- coef(summary(modelo))["Ano", "Pr(>|z|)"]
-
-#Calculando os intervalos de confiança do AAPC usando a distribuição t
-confianca <- 0.95
-intervalo_confianca <- c(aapc - qt(1 - confianca / 2, df = length(RCU$Ano) - 2) * erro_padrao,
-                         aapc + qt(1 - confianca / 2, df = length(RCU$Ano) - 2) * erro_padrao)
 
 
-#Exibindo os resultados
 
-cat("Análise de Prevalência (Binomial):\n",
-    "AAPC:", aapc*100, "%\n", 
-    "IC 95%:", intervalo_confianca[1] * 100, "-", intervalo_confianca[2] * 100, "%\n",
-    "Erro Padrão:", erro_padrao * 100, "\n",
-    "Desvio Padrão:", desvio_padrao_aapc *100, "\n",
-    "Valor de p:", p_valor, "\n")
+Output
 ```
-
-
-Resultados
-
+> Casos_binomial_prevalencia <- calcular_aapc_binomial(Pasta2$`IBD prevalence`, Pasta2$Year)
+There were 11 warnings (use warnings() to see them)
+> cat("Análise de Prevalência (Binomial):\n",
++     "AAPC2:", Casos_binomial_prevalencia$aapc2, "%\n",
++     "IC 95%:", Casos_binomial_prevalencia$ic_lower, "-", Casos_binomial_prevalencia$ic_upper, "%\n",
++     "Erro Padrão:", Casos_binomial_prevalencia$erro_padrao, "\n",
++     "Valor de p:", Casos_binomial_prevalencia$p_valor, "\n")
 Análise de Prevalência (Binomial):
-* AAPC: 15.05531 %
-* IC 95%: 15.05322 - 15.0574 %
-* Erro Padrão: 0.0323791 
-* Desvio Padrão: 0.1073893 
-* Valor de p: 0 
-
-
+ AAPC2: 14.92132 %
+ IC 95%: 14.79507 - 15.04771 %
+ Erro Padrão: 0.01667594 
+ Valor de p: 6.981057e-05 
+```
  2. 
