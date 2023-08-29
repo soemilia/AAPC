@@ -11,11 +11,11 @@
 * Toxal_CX_Ano_Acumulativo
 * Pacientes_Únicos
 * Pacientes_Únicos_Acumulativo
-* Proporção_RCU_BRASIL
-* Taxa cx/RCU_Acumulativo
-* Taxa cx/RCU_nãoAcumulativo
-* Taxa Hosp/RCU_Acumulativo
-* Taxa Hosp/RCU_nãoAcumulativo
+* Proporção_RCU_BRASIL - Proporção entre casos de RCU/População Estimada
+* Taxa cx/RCU_Acumulativo - Proporção entre Total de CX por Ano/ Casos de RCU
+* Taxa cx/RCU_nãoAcumulativo - Proporção entre Total de CX por Ano acumulativo/ Casos de RCU
+* Taxa Hosp/RCU_Acumulativo - Proporção entre Total de hospitalização por Ano/ Casos de RCU
+* Taxa Hosp/RCU_nãoAcumulativo - Proporção entre Total de hospitalização por Ano acumulativo/ Casos de RCU
 
 
 
