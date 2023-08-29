@@ -47,9 +47,8 @@ Degrees of Freedom: 10 Total (i.e. Null);  7 Residual
 Null Deviance:     0.0803 
 Residual Deviance: 0.0793      AIC: 8.084 
 ```
+### Função para a análise de AAPC por regressão binomial negativa
 
-### 1. Cálculo da prevalência de RCU na população geral, por análise binomial.
-   
 ```
 #Pacote necessário
 library(dplyr)
@@ -101,19 +100,29 @@ calcular_aapc_binomial <- function(eventos, anos) {
 
 ```
 
-Output
+### 1. Cálculo da prevalência de RCU na população geral, por análise binomial negativa.
+   
+
+
 ```
-> Casos_binomial_prevalencia <- calcular_aapc_binomial(Pasta2$`IBD prevalence`, Pasta2$Year)
-There were 11 warnings (use warnings() to see them)
-> cat("Análise de Prevalência (Binomial):\n",
-+     "AAPC2:", Casos_binomial_prevalencia$aapc2, "%\n",
-+     "IC 95%:", Casos_binomial_prevalencia$ic_lower, "-", Casos_binomial_prevalencia$ic_upper, "%\n",
-+     "Erro Padrão:", Casos_binomial_prevalencia$erro_padrao, "\n",
-+     "Valor de p:", Casos_binomial_prevalencia$p_valor, "\n")
+# Input
+RCU_BR_prev <- calcular_aapc_binomial(RCU$Casos_RCU, RCU$Ano)
+cat("Análise de Prevalência (Binomial):\n",
+    "AAPC2:", RCU_BR_prev$aapc2, "%\n",
+    "IC 95%:", RCU_BR_prev$ic_lower, "-", RCU_BR_prev$ic_upper, "%\n",
+     "Erro Padrão:", RCU_BR_prev$erro_padrao, "\n",
+     "Valor de p:", RCU_BR_prev$p_valor, "\n"
+```
+
+```
+# Output
 Análise de Prevalência (Binomial):
- AAPC2: 14.92132 %
- IC 95%: 14.79507 - 15.04771 %
- Erro Padrão: 0.01667594 
- Valor de p: 6.981057e-05 
+ AAPC2: 16.86037 %
+ IC 95%: 16.7986 - 16.92217 %
+ Erro Padrão: 0.008021005 
+ Valor de p: 1.174076e-08 
 ```
- 2. 
+ 
+### 2. Cálculo da taxa de CX em casos de RCU, por análise binomial negativa.
+
+
