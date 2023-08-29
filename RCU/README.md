@@ -31,6 +31,9 @@ Análise de Retocolite Ulcerativa (RCU) no Brasil no período de 2012-2022 em li
 
 ## Artigos interessantes
 [segmented: An R Package to Fit Regression Models with Broken-Line Relationships](https://journal.r-project.org/articles/RN-2008-004/RN-2008-004.pdf)
+[Package ‘segmented’](https://cran.r-project.org/web//packages/segmented/segmented.pdf)
+[AAPC](https://surveillance.cancer.gov/help/joinpoint/setting-parameters/method-and-parameters-tab/apc-aapc-tau-confidence-intervals/average-annual-percent-change-aapc#How_are_the_AAPC_Confidence_Intervals_Computed)
+[Trend algorithms](https://seer.cancer.gov/seerstat/WebHelp/Trend_Algorithms.htm#:~:text=The%20percent%20change%20%28PC%29%20in%20rates%20over%20a,by%20100%20to%20convert%20it%20to%20a%20percent.)
 
 
 
