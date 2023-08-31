@@ -8,6 +8,12 @@ Retirados do artigo: [Temporal trends in the epidemiology of inflammatory bowel 
 * Average Annual Percentage Change (AAPC) com intervalo de confiança de 95%:
   * Taxa de incidência (regressão de Poisson ou binomial negativa);
   * Taxa de prevalência (regressão log-binomial).
+ 
+
+#### Arquivos ancorados:
+* Pasta2.xlsx: Tabela com os dados;
+* aapc_logbinomial.R: Função de cálculo do AAPC para prevalência;
+* aapc_incidencia.R: Funçao de cálculo do AAPC para incidência.
 
 
 
