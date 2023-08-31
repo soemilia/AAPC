@@ -13,7 +13,7 @@ Retirados do artigo: [Temporal trends in the epidemiology of inflammatory bowel 
 #### Arquivos ancorados:
 * Pasta2.xlsx: Tabela com os dados;
 * aapc_logbinomial.R: Função de cálculo do AAPC para prevalência;
-* aapc_incidencia.R: Funçao de cálculo do AAPC para incidência.
+* aapc_incidence.R: Funçao de cálculo do AAPC para incidência.
 
 
 
