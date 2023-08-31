@@ -1,4 +1,4 @@
-# epi_aapc
+# aapc
 
 
 Repositório para guardar as análises e resultados.
