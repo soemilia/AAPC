@@ -1,29 +1,25 @@
-# Função log-binomial
+# Função log-binomial - prevalência
 
 
 calcular_aapc_binomial <- function(casos, populacao, anos) {
         #regressão log-binomial
         modelo <- glm(cbind(casos, populacao - casos) ~ anos,
-                     family = quasibinomial(link="log"))
+                     family = binomial(link="log"))
         #coef. do modelo
         coef_ano <- coef(modelo)[2]
-        graus_liberdade_residual <- df.residual(modelo)
-        confianca <- 0.975
-        graus_liberdade <- graus_liberdade_residual - 2  
-        tval <- qt(1 - confianca / 2, df = graus_liberdade)
+        confianca <- 0.05
+        zval <- qnorm(1 - confianca / 2)
         SEm <- coef(summary(modelo))[2, "Std. Error"]
         
         # Intervalo de confiança
-        ic_upper <- (exp(coef_ano + (tval * SEm)) - 1) * 100
-        ic_lower <- (exp(coef_ano - (tval * SEm)) - 1) * 100
+        ic_upper <- (exp(log((aapc/100) + 1) + (zval * SEm)) - 1) * 100
+        ic_lower <- (exp(log((aapc/100) + 1) - (zval * SEm)) - 1) * 100
         
         #AAPC
         aapc <- (exp(coef_ano) - 1) * 100
         
         #Valor de p
-        valor_absoluto_m_SEm <- abs(coef_ano / SEm)
-        graus_liberdade_residual <- df.residual(modelo)
-        valor_p <- 2 * pt(-valor_absoluto_m_SEm, df = graus_liberdade_residual)
+         valor_p <- coef(summary(modelo))[2, "Pr(>|z|)"]
         
         resultado <- list(
                 p_valor = valor_p,
@@ -44,9 +40,16 @@ test <- calcular_aapc_binomial(Pasta2$`IBDU cases`,
 
 
 cat("Análise de Prevalência (Binomial):\n",
-    "AAPC2:", test$aapc, "%\n",
+    "AAPC:", test$aapc, "%\n",
     "IC 95%:", test$ic_lower, "-", test$ic_upper, "%\n",
     "Erro Padrão:", test$erro_padrao, "\n",
     "Valor de p:", test$p_valor, "\n")
+
+
+## valor esperado de acordo com artigo: 
+## AAPC: 19.1%
+## IC 95%: 18.84 - 19.41%
+## Erro Padrão:
+## Valor de p < 0.0001
 
 
