@@ -1,4 +1,4 @@
-# aapc
+# AAPC (Average Annual Percentage Change)
 
 
-Repositório para guardar as análises e resultados.
+Repositório das análises e resultados referentes a 'Average Annual Percentage Change' (AAPC).
